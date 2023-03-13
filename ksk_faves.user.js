@@ -4,6 +4,7 @@
 // @version      0.1
 // @description  custom script for ksk.moe faves
 // @author       throwaway1245725
+// @homepage     https://github.com/throwaway1245725/ksk-faves/
 // @match        https://ksk.moe/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=ksk.moe
 // @grant        GM.xmlHttpRequest
