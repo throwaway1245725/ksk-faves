@@ -116,11 +116,9 @@
     tagArtists(allArtists);
 
     tagGallery(allFaveUrls, allArtists);
-
-    expandPreview();
   };
 
-
+  window.onload = expandPreview;
   GM.xmlHttpRequest({
     method: "GET",
     url: INDEX_URL,
