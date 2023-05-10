@@ -19,6 +19,7 @@
         method: "GET",
         url: INDEX_URL,
         onload: function(response) {
+            document.getElementById('previews').getElementsByTagName('footer')[0].children[1].click()
             const indexData = JSON.parse(response.responseText);
             const allFaveUrls = Object.values(indexData).flatMap(a => Object.values(a));
             const allArtists = Object.keys(indexData).map(a => a.toLowerCase().replace(/[^a-zA-Z0-9-]/g, '-'));
