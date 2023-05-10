@@ -118,7 +118,8 @@
     tagGallery(allFaveUrls, allArtists);
   };
 
-  window.onload = expandPreview;
+  expandPreview();
+  setInterval(expandPreview, 1000);
   GM.xmlHttpRequest({
     method: "GET",
     url: INDEX_URL,
