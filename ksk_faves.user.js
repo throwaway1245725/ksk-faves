@@ -19,7 +19,14 @@
         method: "GET",
         url: INDEX_URL,
         onload: function(response) {
-            document.getElementById('previews').getElementsByTagName('footer')[0].children[1].click()
+            try {
+                const previews = document.getElementById('previews')
+                if (previews) {
+                    previews.getElementsByTagName('footer')[0].children[1].click();
+                }
+            } catch (e) {
+                console.error(e);
+            }
             const indexData = JSON.parse(response.responseText);
             const allFaveUrls = Object.values(indexData).flatMap(a => Object.values(a));
             const allArtists = Object.keys(indexData).map(a => a.toLowerCase().replace(/[^a-zA-Z0-9-]/g, '-'));
@@ -34,8 +41,9 @@
                 starDiv.src = STAR;
                 starDiv.style.width = "30px";
                 starDiv.style.height = "30px";
-                starDiv.style.margin = "6px";
-                starDiv.style.marginLeft = "163px";
+                starDiv.style.marginTop = "8px";
+                starDiv.style.marginLeft = "-44px";
+                starDiv.style.position = "absolute";
                 img.after(starDiv);
             }
             const faveArtists = feeds.filter(f => {
@@ -48,7 +56,7 @@
             }
             console.log('a');
             if (allFaveUrls.includes(window.location.href)) {
-                const img = document.getElementById('archive').getElementsByTagName('article')[0].getElementsByTagName('img')[0];
+                const img = document.getElementById('cover').getElementsByTagName('img')[0];
                 img.style.borderWidth = '4px';
                 img.style.borderStyle = 'solid';
                 img.style.borderColor = 'rgb(255 172 51)';
@@ -56,8 +64,9 @@
                 starDiv.src = STAR;
                 starDiv.style.width = "30px";
                 starDiv.style.height = "30px";
-                starDiv.style.margin = "6px";
-                starDiv.style.marginLeft = "217px";
+                starDiv.style.marginTop = "8px";
+                starDiv.style.marginLeft = "-44px";
+                starDiv.style.position = "absolute";
                 img.after(starDiv);
             }
         }
