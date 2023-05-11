@@ -91,20 +91,21 @@
         .getElementsByTagName("img")[0];
       decorateImg(img);
     }
-    const artists = Array.from(
-      document
-        .getElementById("metadata")
-        .querySelectorAll('a[rel="tag"][href*="/artists/"')
-    );
-    if (artists.length > 0) {
-      artists
-        .filter((a) => {
-          const m = a.href.match(/https:\/\/ksk\.moe\/artists\/(.*)/);
-          return m && allArtists.includes(cleanArtistName(m[1]));
-        })
-        .forEach((a) => {
-          a.style.borderColor = "rgb(189 128 39)";
-        });
+    const galleryMetadata = document.getElementById("metadata");
+    if (galleryMetadata) {
+      const artists = Array.from(
+        galleryMetadata.querySelectorAll('a[rel="tag"][href*="/artists/"')
+      );
+      if (artists.length > 0) {
+        artists
+          .filter((a) => {
+            const m = a.href.match(/https:\/\/ksk\.moe\/artists\/(.*)/);
+            return m && allArtists.includes(cleanArtistName(m[1]));
+          })
+          .forEach((a) => {
+            a.style.borderColor = "rgb(189 128 39)";
+          });
+      }
     }
   };
 
