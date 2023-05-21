@@ -63,7 +63,9 @@
         Array.from(f.getElementsByTagName("article"))
       )
     );
-    const faves = feeds.filter((f) => allFaveUrls.includes(f.children[0].href));
+    const faves = feeds.filter((f) =>
+      allFaveUrls.includes(f.getElementsByTagName("a")[0].href)
+    );
     for (const fave of faves) {
       const img = fave.getElementsByTagName("img")[0];
       decorateImg(img);
