@@ -63,13 +63,15 @@
         Array.from(f.getElementsByTagName("article"))
       )
     );
+    for (const feed of feeds) {
+      for (const form of feed.getElementsByTagName("form")) {
+        form.remove();
+      }
+    }
     const faves = feeds.filter((f) =>
       allFaveUrls.includes(f.getElementsByTagName("a")[0].href)
     );
     for (const fave of faves) {
-      Array.from(fave.getElementsByTagName("form")).forEach((form) =>
-        form.remove()
-      );
       const img = fave.getElementsByTagName("img")[0];
       decorateImg(img);
     }
@@ -92,7 +94,7 @@
   const tagGallery = (allFaveUrls, allArtists) => {
     document
       .getElementById("actions")
-      .querySelector('form[action^="/favorite/"')
+      ?.querySelector('form[action^="/favorite/"')
       ?.remove();
     if (allFaveUrls.includes(window.location.href)) {
       const img = document
